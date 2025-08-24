@@ -36,6 +36,25 @@ const SearchBar = () => {
 
     let cityName = inputField;
 
+    if(cityName.toLowerCase() == "anu")
+    {
+      setLoading("");
+      setWeather(
+      {
+        name:"I Love You",
+        sys:{
+          country:" Anu"
+        },
+        main:{
+          temp:0
+        },
+        weather:[{main:""}]
+      });
+
+      return;
+
+    }
+
     try
     {
       let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${API_KEY}`);
