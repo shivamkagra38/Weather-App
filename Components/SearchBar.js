@@ -43,7 +43,7 @@ const SearchBar = () => {
       {
         name:"I Love You",
         sys:{
-          country:" Anu"
+          country:" Anu❤️"
         },
         main:{
           temp:0
