@@ -3,8 +3,6 @@ import { useState } from 'react';
 
 const API_KEY = "bd7024ada82e9c1401fd14565ecfa44b";
 
-let r = 0;
-
 const dateBuilder = (currentDate) =>
 {
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -16,7 +14,6 @@ const dateBuilder = (currentDate) =>
 
 const SearchBar = () => {
 
-  console.log(r);
   const[inputField, setInputField] = useState("");
   const[weather, setWeather] = useState({cod : -1});
   const[loading, setLoading] = useState("");
@@ -32,7 +29,6 @@ const SearchBar = () => {
   {
     
     setLoading("Loading...");
-    r++;
 
     let cityName = inputField;
 
@@ -60,6 +56,12 @@ const SearchBar = () => {
       let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${API_KEY}`);
       let data = await response.json();
 
+      if(data.cod == 404)
+      {
+        setLoading("Invalid City Name !");
+        return;
+      }
+
       console.log(data);
 
       console.log(data);
@@ -70,6 +72,9 @@ const SearchBar = () => {
     }
     catch(e)
     {
+
+      setLoading("Network Connection Error !");
+
       console.error("Can't make an API Call !");
     }
 

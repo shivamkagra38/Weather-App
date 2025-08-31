@@ -46,6 +46,14 @@ main
     outline: none;
 }
 
+.search-btn
+{
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: 0px solid #313131;
+    cursor: pointer;
+}
+
 .result-container
 {
     margin-top:100px;
@@ -94,4 +102,10 @@ main
 {
     margin-top : 5px;
     font-size: 3rem;
+}
+
+h3
+{
+    margin-top: 20px;
+    font-weight: 100;
 }
